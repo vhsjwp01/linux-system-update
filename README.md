@@ -1,6 +1,9 @@
 # linux-system-update
 A simple shell script to keep Linux distros up to date
 
+### Prequisites
+* A working **Arch**, **Debian**, **Raspbian**, or **Ubuntu** based Linux distribution with `make`
+
 ### Installation
 ```
 prompt$> sudo make install
