@@ -9,9 +9,13 @@ install:
 	case "${PLATFORM}" in                                          \
 	    Linux)                                                     \
 	        cp "${SOURCE}" "${TARGET_DIR}/${SOURCE}"            && \
-	        chmod 750 "${TARGET_DIR}/${SOURCE}"                    \
+	        chmod 750 "${TARGET_DIR}/${SOURCE}"                 && \
+	        echo "SUCCESS"
 	    ;;                                                         \
 	    *)                                                         \
 	        echo "Unknown (and unsupported) platform: ${PLATFORM}" \
 	    ;; \
 	esac
+
+crontab:
+	./crontab_helper.sh
