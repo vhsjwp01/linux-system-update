@@ -10,11 +10,11 @@ install:
 	    Linux)                                                     \
 	        cp "${SOURCE}" "${TARGET_DIR}/${SOURCE}"            && \
 	        chmod 750 "${TARGET_DIR}/${SOURCE}"                 && \
-	        echo "SUCCESS"
+	        echo "SUCCESS"                                         \
 	    ;;                                                         \
 	    *)                                                         \
 	        echo "Unknown (and unsupported) platform: ${PLATFORM}" \
-	    ;; \
+	    ;;                                                         \
 	esac
 
 crontab:
