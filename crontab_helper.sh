@@ -74,7 +74,8 @@ if [ "${this_uid}" = "root" ]; then
         
         done
 
-        crontab_temp_file="${/tmp/${USER}.crontab.$$}"
+        crontab_temp_file="/tmp/${USER}.crontab.$$"
+
         echo "${old_crontab}"          > "${crontab_temp_file}"
         echo "#"                      >> "${crontab_temp_file}"
         echo "# Run system_update.sh" >> "${crontab_temp_file}"
