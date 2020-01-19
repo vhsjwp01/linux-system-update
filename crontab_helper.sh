@@ -76,17 +76,19 @@ if [ "${this_uid}" = "root" ]; then
 
         crontab_temp_file="${/tmp/${USER}.crontab.$$}"
         echo "${old_crontab}"          > "${crontab_temp_file}"
+        echo "#"                      >> "${crontab_temp_file}"
         echo "# Run system_update.sh" >> "${crontab_temp_file}"
-        echo "${minute} ${hour} * * ${weekday} ( ${system_update_script} 2>&1 | logger -t "Automated System Updates" )" >> "${crontab_temp_file}"
+        echo "${minute} ${hour} * * ${weekday} ( ${system_update_script} 2>&1 | logger -t \"Automated System Updates\" )" >> "${crontab_temp_file}"
 
         if [ -s "${crontab_temp_file}" ]; then
             crontab "${crontab_temp_file}"
             let exit_code=${?}
 
             if [ ${exit_code} -ne ${SUCCESS} ]; then
-                echo "  Failed to update crontab from '${crontab_temp_file}'"
+                echo "  Failed to update crontab"
             fi
 
+            rm "${crontab_temp_file}" > /dev/null 2>&1
         fi
 
     else
